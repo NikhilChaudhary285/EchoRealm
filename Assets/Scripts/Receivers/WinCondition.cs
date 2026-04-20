@@ -10,6 +10,7 @@ public class WinCondition : ReceiverBase
     [SerializeField] private bool requiresActivation = false; // if true, only active when a receiver turns it on
 
     private bool _isUnlocked;
+    private bool _hasWon;
 
     protected override void Awake()
     {
@@ -40,12 +41,15 @@ public class WinCondition : ReceiverBase
         if (!other.CompareTag("Player")) return;
 
         WinManager.Instance?.TriggerWin();
+        if (!_hasWon) PlaySound(activateSound);
+        _hasWon = true;
     }
 
     public override void ResetToInitial()
     {
         _isUnlocked = !requiresActivation;
         isActivated = false;
+        _hasWon = false;
         ApplyVisualFeedback(requiresActivation ? inactiveColor : winZoneColor);
     }
 }

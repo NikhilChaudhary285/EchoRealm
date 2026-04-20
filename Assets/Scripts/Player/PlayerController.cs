@@ -13,10 +13,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float lr = Input.GetAxis("Horizontal");
+        float fb = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(h, 0, v) * moveSpeed;
+        Vector3 move = new Vector3(fb, 0, -lr) * moveSpeed;
         _rb.linearVelocity = new Vector3(move.x, _rb.linearVelocity.y, move.z);
 
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
