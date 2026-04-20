@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38108c5a468de447b572fb2168c40a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PressurePlate
-  activateSound: {fileID: 0}
-  deactivateSound: {fileID: 0}
+  activateSound: {fileID: 8300000, guid: aaf721cc3d6bef747bfae588cc19f149, type: 3}
+  deactivateSound: {fileID: 8300000, guid: aaf721cc3d6bef747bfae588cc19f149, type: 3}
   visualRenderer: {fileID: 755500431}
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   inactiveColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1048,9 +1048,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690045c519fd0614a83d16ed00c6df57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoor
-  activateSound: {fileID: 0}
-  deactivateSound: {fileID: 0}
-  visualRenderer: {fileID: 0}
+  activateSound: {fileID: 8300000, guid: 04ba15e6138a43b4bbff3389388ac2a9, type: 3}
+  deactivateSound: {fileID: 8300000, guid: 04ba15e6138a43b4bbff3389388ac2a9, type: 3}
+  visualRenderer: {fileID: 1068073625}
   activeColor: {r: 0.2, g: 0.8, b: 0.2, a: 1}
   inactiveColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   openOffset: {x: 0, y: 4, z: 0}
@@ -1100,9 +1100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0f8e1ea9f98c4aafbe5316012109c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lever
-  activateSound: {fileID: 0}
-  deactivateSound: {fileID: 0}
-  visualRenderer: {fileID: 0}
+  activateSound: {fileID: 8300000, guid: 159d7418b32f84a4a91df7410ef49427, type: 3}
+  deactivateSound: {fileID: 8300000, guid: 159d7418b32f84a4a91df7410ef49427, type: 3}
+  visualRenderer: {fileID: 1739240658}
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   inactiveColor: {r: 1, g: 0, b: 0, a: 1}
   interactRange: 2.5
@@ -1446,9 +1446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6e92e5153cede4abb1146fdc336b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  activateSound: {fileID: 0}
-  deactivateSound: {fileID: 0}
-  visualRenderer: {fileID: 0}
+  activateSound: {fileID: 8300000, guid: ac70944d2507ab3458edb4c7064e8f33, type: 3}
+  deactivateSound: {fileID: 8300000, guid: ac70944d2507ab3458edb4c7064e8f33, type: 3}
+  visualRenderer: {fileID: 1552248724}
   activeColor: {r: 0.2, g: 0.8, b: 0.2, a: 1}
   inactiveColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   moveOffset: {x: 5, y: 0, z: 0}
@@ -1835,9 +1835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a06aec08d8519b43b894d11d7efab2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinCondition
-  activateSound: {fileID: 0}
-  deactivateSound: {fileID: 0}
-  visualRenderer: {fileID: 0}
+  activateSound: {fileID: 8300000, guid: 924205721e278e744afdf09229389da0, type: 3}
+  deactivateSound: {fileID: 8300000, guid: 924205721e278e744afdf09229389da0, type: 3}
+  visualRenderer: {fileID: 1789761431}
   activeColor: {r: 0.2, g: 0.8, b: 0.2, a: 1}
   inactiveColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   winZoneColor: {r: 1, g: 0.85, b: 0, a: 1}
