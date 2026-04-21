@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : ReceiverBase
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
@@ -9,8 +9,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private bool _isGrounded;
 
-    private void Awake() => _rb = GetComponent<Rigidbody>();
+    private Vector3 _lastGroundedPosition;
 
+    private void Awake() => _rb = GetComponent<Rigidbody>();
+    private void Start() => _lastGroundedPosition = transform.position;
+   
     private void Update()
     {
         float lr = Input.GetAxis("Horizontal");
@@ -25,4 +28,5 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision col) => _isGrounded = true;
     private void OnCollisionExit(Collision col) => _isGrounded = false;
+    public override void ResetToInitial() => transform.position = _lastGroundedPosition;
 }
