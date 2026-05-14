@@ -1,106 +1,193 @@
-\# Physics Puzzle — Unity Assignment
+# 🧩 Physics Puzzle — Unity Assignment
 
+### Unity URP • Modular Puzzle Architecture • Event-Driven Systems
 
+A modular physics-based puzzle prototype built in Unity, focused on clean architecture, reusable gameplay systems, and scalable interaction design.
 
-\## How to Run
+---
 
-1\. Open in Unity 6000.3.11f1 (URP)
+# ▶️ How to Run
 
-2\. Open scene: `Assets/Scenes/PuzzleLevel.unity`
+1. Open the project in **Unity 6000.3.11f1 (URP)**  
+2. Open scene: `Assets/Scenes/PuzzleLevel.unity`  
+3. Press **Play**  
 
-3\. Press Play
+---
 
-
-
-\## Controls
+# 🎮 Controls
 
 | Key | Action |
-
-|-----|--------|
-
+|------|---------|
 | WASD | Move |
-
 | Space | Jump |
+| E | Interact (Lever) |
+| R | Reset Puzzle |
 
-| E | Interact (lever) |
+---
 
-| R | Reset puzzle |
+# 🧠 Puzzle Solutions
 
+The level is intentionally designed with multiple solution paths.
 
+## Path A — Lever First
 
-\## Puzzle Solutions
+1. Activate the lever  
+2. Ride the moving platform  
+3. Cross the level and win  
 
-The puzzle is intentionally solvable two ways:
+## Path B — Box First
 
-\- \*\*Path A (Lever first):\*\* Activate the lever → ride the moving platform across → win
+1. Push the heavy box onto the pressure plate  
+2. Gate opens automatically  
+3. Cross the level and finish the puzzle  
 
-\- \*\*Path B (Box first):\*\* Push the heavy box onto the pressure plate → gate opens → cross
+---
 
+# 🏗 System Architecture
 
+The project follows a modular and interface-driven architecture to make adding new puzzle mechanics simple and scalable.
 
-\## System Architecture
+---
 
+# 🔌 Core Interfaces
 
+## `IInteractable`
 
-\### Core Interfaces
+Used by any object capable of changing state and broadcasting events.
 
-\- `IInteractable` — any object that changes state and fires `OnStateChanged`
+### Responsibilities
 
-\- `IReceiver` — any object that responds to `OnActivated()` / `OnDeactivated()`
+- Fires `OnStateChanged`
+- Handles interaction state changes
+- Acts as an event source
 
-\- `IResettable` — any object the ResetManager can restore to initial state
+### Examples
 
+- Lever
+- Pressure Plate
+- Timed Trigger
 
+---
 
-\### How to add a NEW interactable (e.g. a timed trigger)
+## `IReceiver`
 
-1\. Create a class that extends `InteractableBase`
+Used by any object that reacts to activations or deactivations.
 
-2\. Call `SetState(true/false)` when your trigger fires
+### Core Methods
 
-3\. That's it — the InteractionConnector handles the rest
+- `OnActivated()`
+- `OnDeactivated()`
 
+### Examples
 
+- Gate
+- Moving Platform
+- Elevator
+- Trap Systems
 
-\### How to add a NEW receiver (e.g. a spinning blade)
+---
 
-1\. Create a class that extends `ReceiverBase`
+## `IResettable`
 
-2\. Override `OnActivated()` and `OnDeactivated()`
+Used by objects that must restore themselves to an initial state when resetting the puzzle.
 
-3\. Drag it into any `InteractionConnector`'s receiver list in the Inspector
+### Core Method
 
+- `ResetToInitial()`
 
+---
 
-\### InteractionConnector
+# 🔄 InteractionConnector
 
-The connector is the "wire." It subscribes to any `IInteractable`'s `OnStateChanged` event
+The `InteractionConnector` acts like a gameplay “wire” between systems.
 
-and calls `OnActivated()` or `OnDeactivated()` on any list of `IReceiver`s.
+It listens to an `IInteractable` and forwards activation/deactivation events to one or more `IReceiver` targets.
 
-No code changes required to connect new types — purely data-driven via the Inspector.
+## Benefits
 
+- Fully data-driven via Inspector  
+- No hardcoded references  
+- Easily scalable  
+- No additional code required for new connections  
 
+---
 
-\### Reset System
+# ♻️ Reset System
 
-`ResetManager` calls `FindObjectsByType<MonoBehaviour>()` and invokes `ResetToInitial()`
+The `ResetManager` automatically restores the puzzle state.
 
-on every object that implements `IResettable`. No manual registration needed.
+## How It Works
 
+- Uses `FindObjectsByType<MonoBehaviour>()`
+- Detects all objects implementing `IResettable`
+- Calls `ResetToInitial()` automatically
 
+## Benefits
 
-\## Extension Examples
+- No manual registration  
+- Easy scalability  
+- Centralized reset logic  
 
-| New feature | What to do |
+---
 
-|-------------|------------|
+# ➕ Adding New Gameplay Systems
 
-| Timed trigger | Extend `InteractableBase`, call `SetState` on a timer |
+## Add a New Interactable
 
-| Elevator | Extend `ReceiverBase`, interpolate Y in `OnActivated` |
+Example: Timed Trigger
 
-| Multi-gate puzzle | Add more objects to `InteractionConnector.receiverTargets\[]` |
+### Steps
 
-| AND-logic (both plates needed) | Create a `MultiInputConnector` that checks all sources |
+1. Extend `InteractableBase`
+2. Call `SetState(true/false)` when triggered
+3. Done — `InteractionConnector` handles communication automatically
 
+---
+
+## Add a New Receiver
+
+Example: Spinning Blade / Elevator
+
+### Steps
+
+1. Extend `ReceiverBase`
+2. Override:
+   - `OnActivated()`
+   - `OnDeactivated()`
+3. Assign it inside any `InteractionConnector`
+
+---
+
+# 🚀 Extension Examples
+
+| Feature | Implementation Approach |
+|----------|--------------------------|
+| Timed Trigger | Extend `InteractableBase` and trigger `SetState()` using a timer |
+| Elevator | Extend `ReceiverBase` and animate movement in `OnActivated()` |
+| Multi-Gate Puzzle | Add multiple receivers to `InteractionConnector.receiverTargets[]` |
+| AND Logic Puzzle | Create `MultiInputConnector` that validates all inputs |
+
+---
+
+# 🛠 Tech Stack
+
+- Unity  
+- C#  
+- Universal Render Pipeline (URP)  
+- Physics-Based Gameplay  
+- Event-Driven Architecture  
+- Interface-Based Design  
+
+---
+
+# 📚 Key Learnings
+
+This project helped improve understanding of:
+
+- Modular gameplay architecture  
+- Event-driven communication systems  
+- Interface-based programming  
+- Reusable puzzle systems  
+- Scalable interaction design  
+- Resettable gameplay state management  
+- Data-driven Unity workflows  
