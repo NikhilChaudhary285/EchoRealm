@@ -1,4 +1,4 @@
-# 🧩 Physics Puzzle — Unity Assignment
+# 🧩 Modular Physics Puzzle Framework — Unity URP
 
 ### Unity URP • Modular Puzzle Architecture • Event-Driven Systems
 
