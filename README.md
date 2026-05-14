@@ -191,3 +191,15 @@ This project helped improve understanding of:
 - Scalable interaction design  
 - Resettable gameplay state management  
 - Data-driven Unity workflows  
+
+---
+
+## 🔗 Links
+
+🎮 **Gameplay Video**  
+https://drive.google.com/file/d/13KUdexL0Ib0fUkV8topen8W_HAT3_5md/view?usp=sharing
+
+💻 **GitHub Repository**  
+https://github.com/NikhilChaudhary285/EchoRealm
+
+---
